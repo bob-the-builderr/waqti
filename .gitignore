@@ -1,0 +1,14 @@
+# Dependencies and build output: reinstall with `npm install` in each app.
+node_modules/
+.expo/
+dist/
+web-build/
+*.log
+.DS_Store
+
+# Local env files; each app has .env.example with the public values to copy.
+.env
+.env.local
+
+# Screenshots stay on this computer (they can show passwords).
+Screenshot*.png
