@@ -1,0 +1,44 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Waw R1</title>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@800;900&family=Noto+Kufi+Arabic:wght@900&family=Lemonada:wght@700&family=Baloo+Bhaijaan+2:wght@800&family=Sora:wght@800&family=Unbounded:wght@800&family=Outfit:wght@800&family=Lexend:wght@800&display=block" rel="stylesheet">
+<style>
+body{margin:0;padding:24px;background:#F4F2EE;font-family:Arial;color:#15123D}
+h2{font:700 14px Arial;margin:18px 0 8px;color:#666;text-transform:uppercase;letter-spacing:.08em}
+.row{display:flex;gap:22px;align-items:flex-end;flex-wrap:wrap}
+.t{text-align:center;font:11px Arial;color:#777;width:150px}
+svg.i{width:150px;height:150px;display:block;margin-bottom:6px}
+svg.s{width:48px;height:48px}
+.wm{font-size:64px;line-height:1.3;padding:4px 18px;background:#fff;border-radius:12px}
+</style></head><body>
+<h2>Waw — round 1 symbols</h2>
+<div class="row" id="icons"></div>
+<h2>48px on candidate backgrounds</h2>
+<div id="small"></div>
+<h2>Arabic wordmark starting points</h2>
+<div class="row">
+ <div class="wm" style="font-family:'Noto Kufi Arabic';font-weight:900">واو</div>
+ <div class="wm" style="font-family:Alexandria;font-weight:900">واو</div>
+ <div class="wm" style="font-family:Lemonada;font-weight:700">واو</div>
+ <div class="wm" style="font-family:'Baloo Bhaijaan 2';font-weight:800">واو</div>
+</div>
+<h2>Latin pairing</h2>
+<div class="row">
+ <div class="wm" style="font-family:Sora;font-weight:800">waw</div>
+ <div class="wm" style="font-family:Unbounded;font-weight:800;font-size:54px">WAW</div>
+ <div class="wm" style="font-family:Outfit;font-weight:800">waw</div>
+ <div class="wm" style="font-family:Lexend;font-weight:800">waw</div>
+</div>
+<script>
+const W='#fff';
+const icons={
+ "A geometric waw":`<g fill="none" stroke="${W}" stroke-width="30" stroke-linecap="round"><circle cx="106" cy="80" r="31"/><path d="M137,84C141,138 110,168 50,170"/></g>`,
+ "B waw as pin + route":`<path fill="${W}" fill-rule="evenodd" d="M108,30a44,44 0 1 1 -0.1,0Zm0,30a14,14 0 1 0 0.1,0Z"/><path d="M108,118C108,150 90,168 46,170" fill="none" stroke="${W}" stroke-width="28" stroke-linecap="round"/>`,
+ "C waw with plus counter":`<path fill="${W}" fill-rule="evenodd" d="M106,30a48,48 0 1 1 -0.1,0ZM99,56v17h-17v14h17v17h14v-17h17v-14h-17v-17Z"/><path d="M148,96C150,146 116,172 52,172" fill="none" stroke="${W}" stroke-width="28" stroke-linecap="round"/>`,
+ "D mirrored waws = W":`<g fill="none" stroke="${W}" stroke-width="24" stroke-linecap="round"><circle cx="66" cy="70" r="24"/><circle cx="134" cy="70" r="24"/><path d="M90,74C92,120 100,150 100,164M110,74C108,120 100,150 100,164"/></g>`,
+ "E word in icon":`<text x="100" y="132" text-anchor="middle" font-family="Noto Kufi Arabic" font-weight="900" font-size="88" fill="${W}">واو</text>`,
+ "F lowercase waw":`<text x="100" y="124" text-anchor="middle" font-family="Sora" font-weight="800" font-size="70" fill="${W}">waw</text>`
+};
+const bgs=['#7A35FF','#FF4B6E','#0B1F3A'];
+const box=(inner,bg,cls)=>`<svg class="${cls}" viewBox="0 0 200 200"><rect width="200" height="200" rx="46" fill="${bg}"/>${inner}</svg>`;
+document.getElementById('icons').innerHTML=Object.entries(icons).map(([k,v])=>`<div class="t">${box(v,bgs[0],'i')}${k}</div>`).join('');
+document.getElementById('small').innerHTML=bgs.map(bg=>`<div class="row" style="margin-bottom:10px">${Object.values(icons).map(v=>box(v,bg,'s')).join('')}<span class="t" style="width:auto">${bg}</span></div>`).join('');
+</script></body></html>
